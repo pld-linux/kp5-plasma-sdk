@@ -1,18 +1,18 @@
 # TODO:
 # PackageKit qt5
 #
-%define		kdeplasmaver	5.11.0
+%define		kdeplasmaver	5.11.2
 %define		qtver		5.3.2
 %define		kpname		plasma-sdk
 
 Summary:	KDE Plasma Desktop
 Name:		kp5-%{kpname}
-Version:	5.11.0
+Version:	5.11.2
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	be708ae1a194a3c76e27f64e861f39de
+# Source0-md5:	52cec92f017090e8d75e1f6948224854
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	cmake >= 2.8.12
@@ -78,23 +78,33 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/plasmaengineexplorer
 %attr(755,root,root) %{_bindir}/plasmathemeexplorer
 %attr(755,root,root) %{_bindir}/plasmoidviewer
+%dir %{_libdir}/qt5/plugins/ktexteditor
 %{_libdir}/qt5/plugins/ktexteditor/cuttlefishplugin.so
 %{_desktopdir}/org.kde.cuttlefish.desktop
 %{_desktopdir}/org.kde.plasma.lookandfeelexplorer.desktop
 %{_desktopdir}/org.kde.plasma.themeexplorer.desktop
+%dir %{_datadir}/kpackage/genericqml/org.kde.plasma.lookandfeelexplorer
+%dir %{_datadir}/kpackage/genericqml/org.kde.plasma.lookandfeelexplorer/contents
+%dir %{_datadir}/kpackage/genericqml/org.kde.plasma.lookandfeelexplorer/contents/ui
 %{_datadir}/kpackage/genericqml/org.kde.plasma.lookandfeelexplorer/contents/ui/FormField.qml
 %{_datadir}/kpackage/genericqml/org.kde.plasma.lookandfeelexplorer/contents/ui/FormLabel.qml
 %{_datadir}/kpackage/genericqml/org.kde.plasma.lookandfeelexplorer/contents/ui/MetadataEditor.qml
 %{_datadir}/kpackage/genericqml/org.kde.plasma.lookandfeelexplorer/contents/ui/main.qml
 %{_datadir}/kpackage/genericqml/org.kde.plasma.lookandfeelexplorer/metadata.desktop
 %{_datadir}/kpackage/genericqml/org.kde.plasma.lookandfeelexplorer/metadata.json
+%dir %{_datadir}/kpackage/genericqml/org.kde.plasma.themeexplorer
+%dir %{_datadir}/kpackage/genericqml/org.kde.plasma.themeexplorer/contents
+%dir %{_datadir}/kpackage/genericqml/org.kde.plasma.themeexplorer/contents/code
 %{_datadir}/kpackage/genericqml/org.kde.plasma.themeexplorer/contents/code/openInEditor.sh
+%dir %{_datadir}/kpackage/genericqml/org.kde.plasma.themeexplorer/contents/data
 %{_datadir}/kpackage/genericqml/org.kde.plasma.themeexplorer/contents/data/themeDescription.json
 %{_datadir}/kpackage/genericqml/org.kde.plasma.themeexplorer/contents/data/todo
+%dir %{_datadir}/kpackage/genericqml/org.kde.plasma.themeexplorer/contents/ui
 %{_datadir}/kpackage/genericqml/org.kde.plasma.themeexplorer/contents/ui/ColorButton.qml
 %{_datadir}/kpackage/genericqml/org.kde.plasma.themeexplorer/contents/ui/ColorEditor.qml
 %{_datadir}/kpackage/genericqml/org.kde.plasma.themeexplorer/contents/ui/FormLabel.qml
 %{_datadir}/kpackage/genericqml/org.kde.plasma.themeexplorer/contents/ui/MetadataEditor.qml
+%dir %{_datadir}/kpackage/genericqml/org.kde.plasma.themeexplorer/contents/ui/delegates
 %{_datadir}/kpackage/genericqml/org.kde.plasma.themeexplorer/contents/ui/delegates/Hand.qml
 %{_datadir}/kpackage/genericqml/org.kde.plasma.themeexplorer/contents/ui/delegates/actionbutton.qml
 %{_datadir}/kpackage/genericqml/org.kde.plasma.themeexplorer/contents/ui/delegates/allframesvgs.qml
@@ -115,6 +125,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kpackage/genericqml/org.kde.plasma.themeexplorer/contents/ui/delegates/slider.qml
 %{_datadir}/kpackage/genericqml/org.kde.plasma.themeexplorer/contents/ui/delegates/tabbar.qml
 %{_datadir}/kpackage/genericqml/org.kde.plasma.themeexplorer/contents/ui/delegates/textfield.qml
+%dir %{_datadir}/kpackage/genericqml/org.kde.plasma.themeexplorer/contents/ui/fakecontrols
 %{_datadir}/kpackage/genericqml/org.kde.plasma.themeexplorer/contents/ui/fakecontrols/Button.qml
 %{_datadir}/kpackage/genericqml/org.kde.plasma.themeexplorer/contents/ui/fakecontrols/CheckBox.qml
 %{_datadir}/kpackage/genericqml/org.kde.plasma.themeexplorer/contents/ui/fakecontrols/LineEdit.qml
@@ -130,6 +141,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/metainfo/org.kde.plasma.lookandfeelexplorer.appdata.xml
 %{_datadir}/metainfo/org.kde.plasma.plasmoidviewershell.appdata.xml
 %{_datadir}/metainfo/org.kde.plasma.themeexplorer.appdata.xml
+%dir %{_datadir}/plasma/packages/org.kde.plasma.cuttlefish
+%dir %{_datadir}/plasma/packages/org.kde.plasma.cuttlefish/contents
+%dir %{_datadir}/plasma/packages/org.kde.plasma.cuttlefish/contents/ui
 %{_datadir}/plasma/packages/org.kde.plasma.cuttlefish/contents/ui/IconGrid.qml
 %{_datadir}/plasma/packages/org.kde.plasma.cuttlefish/contents/ui/IconGridDelegate.qml
 %{_datadir}/plasma/packages/org.kde.plasma.cuttlefish/contents/ui/Preview.qml
@@ -138,9 +152,13 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/plasma/packages/org.kde.plasma.cuttlefish/contents/ui/cuttlefish.qml
 %{_datadir}/plasma/packages/org.kde.plasma.cuttlefish/metadata.desktop
 %{_datadir}/plasma/packages/org.kde.plasma.cuttlefish/metadata.json
+%dir %{_datadir}/plasma/shells/org.kde.plasma.plasmoidviewershell
+%dir %{_datadir}/plasma/shells/org.kde.plasma.plasmoidviewershell/contents
+%dir %{_datadir}/plasma/shells/org.kde.plasma.plasmoidviewershell/contents/applet
 %{_datadir}/plasma/shells/org.kde.plasma.plasmoidviewershell/contents/applet/AppletError.qml
 %{_datadir}/plasma/shells/org.kde.plasma.plasmoidviewershell/contents/applet/CompactApplet.qml
 %{_datadir}/plasma/shells/org.kde.plasma.plasmoidviewershell/contents/applet/DefaultCompactRepresentation.qml
+%dir %{_datadir}/plasma/shells/org.kde.plasma.plasmoidviewershell/contents/configuration
 %{_datadir}/plasma/shells/org.kde.plasma.plasmoidviewershell/contents/configuration/AppletConfiguration.qml
 %{_datadir}/plasma/shells/org.kde.plasma.plasmoidviewershell/contents/configuration/ConfigCategoryDelegate.qml
 %{_datadir}/plasma/shells/org.kde.plasma.plasmoidviewershell/contents/configuration/ConfigurationContainmentActions.qml
@@ -151,6 +169,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/plasma/shells/org.kde.plasma.plasmoidviewershell/contents/configuration/MouseEventInputButton.qml
 %{_datadir}/plasma/shells/org.kde.plasma.plasmoidviewershell/contents/configuration/PanelConfiguration.qml
 %{_datadir}/plasma/shells/org.kde.plasma.plasmoidviewershell/contents/defaults
+%dir %{_datadir}/plasma/shells/org.kde.plasma.plasmoidviewershell/contents/views
 %{_datadir}/plasma/shells/org.kde.plasma.plasmoidviewershell/contents/views/Background.qml
 %{_datadir}/plasma/shells/org.kde.plasma.plasmoidviewershell/contents/views/Desktop.qml
 %{_datadir}/plasma/shells/org.kde.plasma.plasmoidviewershell/contents/views/Konsole.qml
