@@ -1,18 +1,18 @@
 # TODO:
 # PackageKit qt5
 #
-%define		kdeplasmaver	5.15.3
+%define		kdeplasmaver	5.21.2
 %define		qtver		5.9.0
 %define		kpname		plasma-sdk
 
 Summary:	KDE Plasma Desktop
 Name:		kp5-%{kpname}
-Version:	5.15.3
+Version:	5.21.2
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	b625e5c98588b20c842c8c750abf9df2
+# Source0-md5:	0040303ed9f4444c4a3e4009f3d8a6f4
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	cmake >= 2.8.12
@@ -55,6 +55,7 @@ install -d build
 cd build
 %cmake -G Ninja \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
+	-DHTML_INSTALL_DIR=%{_kdedocdir} \
 	../
 %ninja_build
 
@@ -86,7 +87,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/kpackage/genericqml/org.kde.plasma.lookandfeelexplorer/contents
 %dir %{_datadir}/kpackage/genericqml/org.kde.plasma.lookandfeelexplorer/contents/ui
 %{_datadir}/kpackage/genericqml/org.kde.plasma.lookandfeelexplorer/contents/ui/FormField.qml
-%{_datadir}/kpackage/genericqml/org.kde.plasma.lookandfeelexplorer/contents/ui/FormLabel.qml
+
 %{_datadir}/kpackage/genericqml/org.kde.plasma.lookandfeelexplorer/contents/ui/MetadataEditor.qml
 %{_datadir}/kpackage/genericqml/org.kde.plasma.lookandfeelexplorer/contents/ui/main.qml
 %{_datadir}/kpackage/genericqml/org.kde.plasma.lookandfeelexplorer/metadata.desktop
@@ -146,7 +147,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/plasma/packages/org.kde.plasma.cuttlefish/contents/ui/IconGrid.qml
 %{_datadir}/plasma/packages/org.kde.plasma.cuttlefish/contents/ui/IconGridDelegate.qml
 %{_datadir}/plasma/packages/org.kde.plasma.cuttlefish/contents/ui/Preview.qml
-%{_datadir}/plasma/packages/org.kde.plasma.cuttlefish/contents/ui/SvgGrid.qml
 %{_datadir}/plasma/packages/org.kde.plasma.cuttlefish/contents/ui/Tools.qml
 %{_datadir}/plasma/packages/org.kde.plasma.cuttlefish/contents/ui/cuttlefish.qml
 %{_datadir}/plasma/packages/org.kde.plasma.cuttlefish/metadata.desktop
@@ -179,3 +179,12 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/org.kde.plasmoidviewer.desktop
 %{_datadir}/metainfo/org.kde.plasmaengineexplorer.appdata.xml
 %{_datadir}/metainfo/org.kde.plasmoidviewer.appdata.xml
+%{_datadir}/plasma/packages/org.kde.plasma.cuttlefish/contents/ui/GlobalMenuBar.qml
+%{_datadir}/plasma/packages/org.kde.plasma.cuttlefish/contents/ui/Menu.qml
+%{_datadir}/plasma/packages/org.kde.plasma.cuttlefish/contents/ui/ResponsivePreview.qml
+%{_datadir}/plasma/packages/org.kde.plasma.cuttlefish/contents/ui/ToolsResponsive.qml
+
+%{_datadir}/plasma/packages/org.kde.plasma.cuttlefish/contents/ui/Actions.qml
+%{_datadir}/plasma/packages/org.kde.plasma.cuttlefish/contents/ui/Comparison.qml
+%{_datadir}/plasma/packages/org.kde.plasma.cuttlefish/contents/ui/IconMontage.qml
+%{_datadir}/plasma/packages/org.kde.plasma.cuttlefish/contents/ui/Screenshot.qml
