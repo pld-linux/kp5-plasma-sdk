@@ -1,18 +1,18 @@
 # TODO:
 # PackageKit qt5
 #
-%define		kdeplasmaver	5.22.5
+%define		kdeplasmaver	5.23.0
 %define		qtver		5.9.0
 %define		kpname		plasma-sdk
 
 Summary:	KDE Plasma Desktop
 Name:		kp5-%{kpname}
-Version:	5.22.5
+Version:	5.23.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	9847e0d4c51fd344a14c0590544b6619
+# Source0-md5:	a10df22bca9bb81e5be5b8a5b0ba01b3
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	cmake >= 2.8.12
@@ -139,50 +139,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/metainfo/org.kde.plasma.lookandfeelexplorer.appdata.xml
 %{_datadir}/metainfo/org.kde.plasma.plasmoidviewershell.appdata.xml
 %{_datadir}/metainfo/org.kde.plasma.themeexplorer.appdata.xml
-%dir %{_datadir}/plasma/packages/org.kde.plasma.cuttlefish
-%dir %{_datadir}/plasma/packages/org.kde.plasma.cuttlefish/contents
-%dir %{_datadir}/plasma/packages/org.kde.plasma.cuttlefish/contents/ui
-%{_datadir}/plasma/packages/org.kde.plasma.cuttlefish/contents/ui/IconGrid.qml
-%{_datadir}/plasma/packages/org.kde.plasma.cuttlefish/contents/ui/IconGridDelegate.qml
-%{_datadir}/plasma/packages/org.kde.plasma.cuttlefish/contents/ui/Preview.qml
-%{_datadir}/plasma/packages/org.kde.plasma.cuttlefish/contents/ui/Tools.qml
-%{_datadir}/plasma/packages/org.kde.plasma.cuttlefish/contents/ui/cuttlefish.qml
-%{_datadir}/plasma/packages/org.kde.plasma.cuttlefish/metadata.desktop
-%{_datadir}/plasma/packages/org.kde.plasma.cuttlefish/metadata.json
-%dir %{_datadir}/plasma/shells/org.kde.plasma.plasmoidviewershell
-%dir %{_datadir}/plasma/shells/org.kde.plasma.plasmoidviewershell/contents
-%dir %{_datadir}/plasma/shells/org.kde.plasma.plasmoidviewershell/contents/applet
-%{_datadir}/plasma/shells/org.kde.plasma.plasmoidviewershell/contents/applet/AppletError.qml
-%{_datadir}/plasma/shells/org.kde.plasma.plasmoidviewershell/contents/applet/CompactApplet.qml
-%{_datadir}/plasma/shells/org.kde.plasma.plasmoidviewershell/contents/applet/DefaultCompactRepresentation.qml
-%dir %{_datadir}/plasma/shells/org.kde.plasma.plasmoidviewershell/contents/configuration
-%{_datadir}/plasma/shells/org.kde.plasma.plasmoidviewershell/contents/configuration/AppletConfiguration.qml
-%{_datadir}/plasma/shells/org.kde.plasma.plasmoidviewershell/contents/configuration/ConfigCategoryDelegate.qml
-%{_datadir}/plasma/shells/org.kde.plasma.plasmoidviewershell/contents/configuration/ConfigurationContainmentActions.qml
-%{_datadir}/plasma/shells/org.kde.plasma.plasmoidviewershell/contents/configuration/ConfigurationContainmentAppearance.qml
-%{_datadir}/plasma/shells/org.kde.plasma.plasmoidviewershell/contents/configuration/ConfigurationKcmPage.qml
-%{_datadir}/plasma/shells/org.kde.plasma.plasmoidviewershell/contents/configuration/ConfigurationShortcuts.qml
-%{_datadir}/plasma/shells/org.kde.plasma.plasmoidviewershell/contents/configuration/ContainmentConfiguration.qml
-%{_datadir}/plasma/shells/org.kde.plasma.plasmoidviewershell/contents/configuration/MouseEventInputButton.qml
-%{_datadir}/plasma/shells/org.kde.plasma.plasmoidviewershell/contents/configuration/PanelConfiguration.qml
-%{_datadir}/plasma/shells/org.kde.plasma.plasmoidviewershell/contents/defaults
-%dir %{_datadir}/plasma/shells/org.kde.plasma.plasmoidviewershell/contents/views
-%{_datadir}/plasma/shells/org.kde.plasma.plasmoidviewershell/contents/views/Background.qml
-%{_datadir}/plasma/shells/org.kde.plasma.plasmoidviewershell/contents/views/Desktop.qml
-%{_datadir}/plasma/shells/org.kde.plasma.plasmoidviewershell/contents/views/Konsole.qml
-%{_datadir}/plasma/shells/org.kde.plasma.plasmoidviewershell/contents/views/SdkButtons.qml
-%{_datadir}/plasma/shells/org.kde.plasma.plasmoidviewershell/metadata.desktop
-%{_datadir}/plasma/shells/org.kde.plasma.plasmoidviewershell/metadata.json
+%{_datadir}/plasma/packages/org.kde.plasma.cuttlefish
+%{_datadir}/plasma/shells/org.kde.plasma.plasmoidviewershell
 %{_desktopdir}/org.kde.plasmaengineexplorer.desktop
 %{_desktopdir}/org.kde.plasmoidviewer.desktop
 %{_datadir}/metainfo/org.kde.plasmaengineexplorer.appdata.xml
 %{_datadir}/metainfo/org.kde.plasmoidviewer.appdata.xml
-%{_datadir}/plasma/packages/org.kde.plasma.cuttlefish/contents/ui/GlobalMenuBar.qml
-%{_datadir}/plasma/packages/org.kde.plasma.cuttlefish/contents/ui/Menu.qml
-%{_datadir}/plasma/packages/org.kde.plasma.cuttlefish/contents/ui/ResponsivePreview.qml
-%{_datadir}/plasma/packages/org.kde.plasma.cuttlefish/contents/ui/ToolsResponsive.qml
-
-%{_datadir}/plasma/packages/org.kde.plasma.cuttlefish/contents/ui/Actions.qml
-%{_datadir}/plasma/packages/org.kde.plasma.cuttlefish/contents/ui/Comparison.qml
-%{_datadir}/plasma/packages/org.kde.plasma.cuttlefish/contents/ui/IconMontage.qml
-%{_datadir}/plasma/packages/org.kde.plasma.cuttlefish/contents/ui/Screenshot.qml
