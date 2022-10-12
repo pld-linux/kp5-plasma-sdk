@@ -4,18 +4,18 @@
 # TODO:
 # PackageKit qt5
 #
-%define		kdeplasmaver	5.25.5
+%define		kdeplasmaver	5.26.0
 %define		qtver		5.15.2
 %define		kpname		plasma-sdk
 
 Summary:	KDE Plasma Desktop
 Name:		kp5-%{kpname}
-Version:	5.25.5
-Release:	2
+Version:	5.26.0
+Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	70aaa428d68d9f447833cf6e24d8c5fb
+# Source0-md5:	ce66de445e66a7783c70af8057b8edb8
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	cmake >= 2.8.12
@@ -88,7 +88,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/plasmoidviewer
 %dir %{_libdir}/qt5/plugins/ktexteditor
 %{_libdir}/qt5/plugins/ktexteditor/cuttlefishplugin.so
-%{_desktopdir}/org.kde.cuttlefish.desktop
 %{_desktopdir}/org.kde.plasma.lookandfeelexplorer.desktop
 %{_desktopdir}/org.kde.plasma.themeexplorer.desktop
 %dir %{_datadir}/kpackage/genericqml/org.kde.plasma.lookandfeelexplorer
@@ -142,16 +141,14 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kpackage/genericqml/org.kde.plasma.themeexplorer/metadata.json
 %{_mandir}/man1/plasmaengineexplorer.1*
 %{_mandir}/man1/plasmoidviewer.1*
-%{_datadir}/metainfo/org.kde.cuttlefish.appdata.xml
 %{_datadir}/metainfo/org.kde.plasma.cuttlefish.appdata.xml
 %{_datadir}/metainfo/org.kde.plasma.lookandfeelexplorer.appdata.xml
 %{_datadir}/metainfo/org.kde.plasma.plasmoidviewershell.appdata.xml
 %{_datadir}/metainfo/org.kde.plasma.themeexplorer.appdata.xml
-%{_datadir}/plasma/packages/org.kde.plasma.cuttlefish
 %{_datadir}/plasma/shells/org.kde.plasma.plasmoidviewershell
 %{_desktopdir}/org.kde.plasmaengineexplorer.desktop
 %{_desktopdir}/org.kde.plasmoidviewer.desktop
 %{_datadir}/metainfo/org.kde.plasmaengineexplorer.appdata.xml
 %{_datadir}/metainfo/org.kde.plasmoidviewer.appdata.xml
-%{_datadir}/kservices5/plasma-package-org.kde.plasma.cuttlefish.desktop
 %{_datadir}/kservices5/plasma-shell-org.kde.plasma.plasmoidviewershell.desktop
+%{_desktopdir}/org.kde.plasma.cuttlefish.desktop
