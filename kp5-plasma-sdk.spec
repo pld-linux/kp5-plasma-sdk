@@ -4,18 +4,18 @@
 # TODO:
 # PackageKit qt5
 #
-%define		kdeplasmaver	5.26.5
+%define		kdeplasmaver	5.27.0
 %define		qtver		5.15.2
 %define		kpname		plasma-sdk
 
 Summary:	KDE Plasma Desktop
 Name:		kp5-%{kpname}
-Version:	5.26.5
+Version:	5.27.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	5310bb325acaacddd75cfcc9beb720ae
+# Source0-md5:	766f5f6ec471dc4dea54556eccc48cc4
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	cmake >= 2.8.12
@@ -152,3 +152,31 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/metainfo/org.kde.plasmoidviewer.appdata.xml
 %{_datadir}/kservices5/plasma-shell-org.kde.plasma.plasmoidviewershell.desktop
 %{_desktopdir}/org.kde.plasma.cuttlefish.desktop
+
+%lang(ca) %{_mandir}/ca/man1/plasmaengineexplorer.1*
+%lang(ca) %{_mandir}/ca/man1/plasmoidviewer.1*
+%lang(de) %{_mandir}/de/man1/plasmaengineexplorer.1*
+%lang(de) %{_mandir}/de/man1/plasmoidviewer.1*
+%lang(el) %{_mandir}/el/man1/plasmaengineexplorer.1*
+%lang(el) %{_mandir}/el/man1/plasmoidviewer.1*
+%lang(es) %{_mandir}/es/man1/plasmaengineexplorer.1*
+%lang(es) %{_mandir}/es/man1/plasmoidviewer.1*
+%lang(et) %{_mandir}/et/man1/plasmaengineexplorer.1*
+%lang(et) %{_mandir}/et/man1/plasmoidviewer.1*
+%lang(fr) %{_mandir}/fr/man1/plasmaengineexplorer.1*
+%lang(fr) %{_mandir}/fr/man1/plasmoidviewer.1*
+%lang(it) %{_mandir}/it/man1/plasmaengineexplorer.1*
+%lang(it) %{_mandir}/it/man1/plasmoidviewer.1*
+%lang(nl) %{_mandir}/nl/man1/plasmaengineexplorer.1*
+%lang(nl) %{_mandir}/nl/man1/plasmoidviewer.1*
+%lang(pt) %{_mandir}/pt/man1/plasmaengineexplorer.1*
+%lang(pt) %{_mandir}/pt/man1/plasmoidviewer.1*
+%lang(pt_BR) %{_mandir}/pt_BR/man1/plasmaengineexplorer.1*
+%lang(pt_BR) %{_mandir}/pt_BR/man1/plasmoidviewer.1*
+%lang(ru) %{_mandir}/ru/man1/plasmaengineexplorer.1*
+%lang(ru) %{_mandir}/ru/man1/plasmoidviewer.1*
+%lang(sv) %{_mandir}/sv/man1/plasmaengineexplorer.1*
+%lang(sv) %{_mandir}/sv/man1/plasmoidviewer.1*
+%lang(uk) %{_mandir}/uk/man1/plasmaengineexplorer.1*
+%lang(uk) %{_mandir}/uk/man1/plasmoidviewer.1*
+%{zsh_compdir}/_plasmoidviewer
