@@ -4,18 +4,18 @@
 # TODO:
 # PackageKit qt5
 #
-%define		kdeplasmaver	5.27.5
+%define		kdeplasmaver	5.27.6
 %define		qtver		5.15.2
 %define		kpname		plasma-sdk
 
 Summary:	KDE Plasma Desktop
 Name:		kp5-%{kpname}
-Version:	5.27.5
-Release:	2
+Version:	5.27.6
+Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	a46c94604166a9a2feb748ee8c82e86d
+# Source0-md5:	7b2833be7e43f09d2d7121c6f07d399b
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	cmake >= 2.8.12
@@ -54,6 +54,9 @@ Applications useful for Plasma Development.
 %setup -q -n %{kpname}-%{version}
 
 %build
+# Stupid workaround. There was a build failure with nl locale
+rm -rf po/nl
+
 install -d build
 cd build
 %cmake -G Ninja \
@@ -169,8 +172,8 @@ rm -rf $RPM_BUILD_ROOT
 %lang(id) %{_mandir}/id/man1/plasmoidviewer.1*
 %lang(it) %{_mandir}/it/man1/plasmaengineexplorer.1*
 %lang(it) %{_mandir}/it/man1/plasmoidviewer.1*
-%lang(nl) %{_mandir}/nl/man1/plasmaengineexplorer.1*
-%lang(nl) %{_mandir}/nl/man1/plasmoidviewer.1*
+#%lang(nl) %{_mandir}/nl/man1/plasmaengineexplorer.1*
+#%lang(nl) %{_mandir}/nl/man1/plasmoidviewer.1*
 %lang(pt) %{_mandir}/pt/man1/plasmaengineexplorer.1*
 %lang(pt) %{_mandir}/pt/man1/plasmoidviewer.1*
 %lang(pt_BR) %{_mandir}/pt_BR/man1/plasmaengineexplorer.1*
