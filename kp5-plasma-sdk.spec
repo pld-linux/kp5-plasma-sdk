@@ -4,21 +4,21 @@
 # TODO:
 # PackageKit qt5
 #
-%define		kdeplasmaver	5.27.6
+%define		kdeplasmaver	5.27.7
 %define		qtver		5.15.2
 %define		kpname		plasma-sdk
 
 Summary:	KDE Plasma Desktop
 Name:		kp5-%{kpname}
-Version:	5.27.6
+Version:	5.27.7
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	7b2833be7e43f09d2d7121c6f07d399b
+# Source0-md5:	cba2b18c587dff393bd232d61a35046d
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
-BuildRequires:	cmake >= 2.8.12
+BuildRequires:	cmake >= 3.16.0
 BuildRequires:	fontconfig-devel
 BuildRequires:	kf5-attica-devel
 BuildRequires:	kf5-kactivities-stats-devel
@@ -54,17 +54,14 @@ Applications useful for Plasma Development.
 %setup -q -n %{kpname}-%{version}
 
 %build
-# Stupid workaround. There was a build failure with nl locale
-rm -rf po/nl
+rm -rf po/ca
 
-install -d build
-cd build
-%cmake -G Ninja \
+%cmake -B build \
+	-G Ninja \
 	%{!?with_tests:-DBUILD_TESTING=OFF} \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
-	-DHTML_INSTALL_DIR=%{_kdedocdir} \
-	../
-%ninja_build
+	-DHTML_INSTALL_DIR=%{_kdedocdir}
+%ninja_build -C build
 
 %if %{with tests}
 ctest
@@ -156,8 +153,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kservices5/plasma-shell-org.kde.plasma.plasmoidviewershell.desktop
 %{_desktopdir}/org.kde.plasma.cuttlefish.desktop
 
-%lang(ca) %{_mandir}/ca/man1/plasmaengineexplorer.1*
-%lang(ca) %{_mandir}/ca/man1/plasmoidviewer.1*
+#%lang(ca) %{_mandir}/ca/man1/plasmaengineexplorer.1*
+#%lang(ca) %{_mandir}/ca/man1/plasmoidviewer.1*
 %lang(de) %{_mandir}/de/man1/plasmaengineexplorer.1*
 %lang(de) %{_mandir}/de/man1/plasmoidviewer.1*
 %lang(el) %{_mandir}/el/man1/plasmaengineexplorer.1*
@@ -172,16 +169,16 @@ rm -rf $RPM_BUILD_ROOT
 %lang(id) %{_mandir}/id/man1/plasmoidviewer.1*
 %lang(it) %{_mandir}/it/man1/plasmaengineexplorer.1*
 %lang(it) %{_mandir}/it/man1/plasmoidviewer.1*
-#%lang(nl) %{_mandir}/nl/man1/plasmaengineexplorer.1*
-#%lang(nl) %{_mandir}/nl/man1/plasmoidviewer.1*
+%lang(nl) %{_mandir}/nl/man1/plasmaengineexplorer.1*
+%lang(nl) %{_mandir}/nl/man1/plasmoidviewer.1*
 %lang(pt) %{_mandir}/pt/man1/plasmaengineexplorer.1*
 %lang(pt) %{_mandir}/pt/man1/plasmoidviewer.1*
 %lang(pt_BR) %{_mandir}/pt_BR/man1/plasmaengineexplorer.1*
 %lang(pt_BR) %{_mandir}/pt_BR/man1/plasmoidviewer.1*
 %lang(ru) %{_mandir}/ru/man1/plasmaengineexplorer.1*
 %lang(ru) %{_mandir}/ru/man1/plasmoidviewer.1*
-%lang(sv) %{_mandir}/sv/man1/plasmaengineexplorer.1*
-%lang(sv) %{_mandir}/sv/man1/plasmoidviewer.1*
+#%lang(sv) %{_mandir}/sv/man1/plasmaengineexplorer.1*
+#%lang(sv) %{_mandir}/sv/man1/plasmoidviewer.1*
 %lang(tr) %{_mandir}/tr/man1/plasmaengineexplorer.1*
 %lang(tr) %{_mandir}/tr/man1/plasmoidviewer.1*
 %lang(uk) %{_mandir}/uk/man1/plasmaengineexplorer.1*
