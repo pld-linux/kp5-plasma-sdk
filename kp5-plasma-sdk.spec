@@ -10,12 +10,12 @@
 
 Summary:	KDE Plasma Desktop
 Name:		kp5-%{kpname}
-Version:	5.27.7
+Version:	5.27.7.1
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	cba2b18c587dff393bd232d61a35046d
+# Source0-md5:	8e9460adae337baab8d80da3422f9e34
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	cmake >= 3.16.0
@@ -54,8 +54,6 @@ Applications useful for Plasma Development.
 %setup -q -n %{kpname}-%{version}
 
 %build
-rm -rf po/ca
-
 %cmake -B build \
 	-G Ninja \
 	%{!?with_tests:-DBUILD_TESTING=OFF} \
@@ -153,8 +151,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kservices5/plasma-shell-org.kde.plasma.plasmoidviewershell.desktop
 %{_desktopdir}/org.kde.plasma.cuttlefish.desktop
 
-#%lang(ca) %{_mandir}/ca/man1/plasmaengineexplorer.1*
-#%lang(ca) %{_mandir}/ca/man1/plasmoidviewer.1*
+%lang(ca) %{_mandir}/ca/man1/plasmaengineexplorer.1*
+%lang(ca) %{_mandir}/ca/man1/plasmoidviewer.1*
 %lang(de) %{_mandir}/de/man1/plasmaengineexplorer.1*
 %lang(de) %{_mandir}/de/man1/plasmoidviewer.1*
 %lang(el) %{_mandir}/el/man1/plasmaengineexplorer.1*
