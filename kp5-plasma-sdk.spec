@@ -4,37 +4,39 @@
 # TODO:
 # PackageKit qt5
 #
-%define		kdeplasmaver	5.93.0
+%define		kdeplasmaver	5.27.10
 %define		qtver		5.15.2
 %define		kpname		plasma-sdk
 
 Summary:	KDE Plasma Desktop
 Name:		kp5-%{kpname}
-Version:	5.93.0
-Release:	0.1
+Version:	5.27.10
+Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
-Source0:	https://download.kde.org/unstable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	e1c1130f4e10db46d8452eba3ed6c632
+Source0:	https://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
+# Source0-md5:	8c52fad441ffe43969458ae71b6a2f26
 URL:		http://www.kde.org/
-BuildRequires:	Qt6Core-devel >= %{qtver}
+BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	cmake >= 3.16.0
 BuildRequires:	fontconfig-devel
-BuildRequires:	kf6-attica-devel
-BuildRequires:	kf6-kauth-devel
-BuildRequires:	kf6-kcmutils-devel
-BuildRequires:	kf6-kdbusaddons-devel
-BuildRequires:	kf6-kdeclarative-devel
-BuildRequires:	kf6-kdoctools-devel
-BuildRequires:	kf6-kglobalaccel-devel
-BuildRequires:	kf6-ki18n-devel
-BuildRequires:	kf6-knewstuff-devel
-BuildRequires:	kf6-knotifications-devel
-BuildRequires:	kf6-knotifyconfig-devel
-BuildRequires:	kf6-kpeople-devel
-BuildRequires:	kf6-krunner-devel
-BuildRequires:	kf6-kwallet-devel
-BuildRequires:	kp5-plasma-activities-stats-devel
+BuildRequires:	kf5-attica-devel
+BuildRequires:	kf5-kactivities-stats-devel
+BuildRequires:	kf5-kauth-devel
+BuildRequires:	kf5-kcmutils-devel
+BuildRequires:	kf5-kdbusaddons-devel
+BuildRequires:	kf5-kdeclarative-devel
+BuildRequires:	kf5-kdelibs4support-devel
+BuildRequires:	kf5-kdoctools-devel
+BuildRequires:	kf5-kglobalaccel-devel
+BuildRequires:	kf5-ki18n-devel
+BuildRequires:	kf5-knewstuff-devel
+BuildRequires:	kf5-knotifications-devel
+BuildRequires:	kf5-knotifyconfig-devel
+BuildRequires:	kf5-kpeople-devel
+BuildRequires:	kf5-krunner-devel
+BuildRequires:	kf5-kwallet-devel
+BuildRequires:	kf5-plasma-framework-devel
 BuildRequires:	ninja
 BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRequires:	xorg-driver-input-evdev-devel
@@ -43,7 +45,7 @@ BuildRequires:	xorg-lib-libXft-devel
 BuildRequires:	xz
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		qt6dir		%{_libdir}/qt6
+%define		qt5dir		%{_libdir}/qt5
 
 %description
 Applications useful for Plasma Development.
@@ -77,11 +79,14 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{kpname}.lang
 %defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/cuttlefish
 %attr(755,root,root) %{_bindir}/lookandfeelexplorer
 %attr(755,root,root) %{_bindir}/plasmaengineexplorer
 %attr(755,root,root) %{_bindir}/plasmathemeexplorer
 %attr(755,root,root) %{_bindir}/plasmoidviewer
-%dir %{_libdir}/qt6/plugins/ktexteditor
+%dir %{_libdir}/qt5/plugins/ktexteditor
+%{_libdir}/qt5/plugins/ktexteditor/cuttlefishplugin.so
+%{_desktopdir}/org.kde.plasma.lookandfeelexplorer.desktop
 %{_desktopdir}/org.kde.plasma.themeexplorer.desktop
 %dir %{_datadir}/kpackage/genericqml/org.kde.plasma.lookandfeelexplorer
 %dir %{_datadir}/kpackage/genericqml/org.kde.plasma.lookandfeelexplorer/contents
@@ -90,6 +95,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %{_datadir}/kpackage/genericqml/org.kde.plasma.lookandfeelexplorer/contents/ui/MetadataEditor.qml
 %{_datadir}/kpackage/genericqml/org.kde.plasma.lookandfeelexplorer/contents/ui/main.qml
+%{_datadir}/kpackage/genericqml/org.kde.plasma.lookandfeelexplorer/metadata.desktop
 %{_datadir}/kpackage/genericqml/org.kde.plasma.lookandfeelexplorer/metadata.json
 %dir %{_datadir}/kpackage/genericqml/org.kde.plasma.themeexplorer
 %dir %{_datadir}/kpackage/genericqml/org.kde.plasma.themeexplorer/contents
@@ -129,9 +135,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kpackage/genericqml/org.kde.plasma.themeexplorer/contents/ui/fakecontrols/CheckBox.qml
 %{_datadir}/kpackage/genericqml/org.kde.plasma.themeexplorer/contents/ui/fakecontrols/LineEdit.qml
 %{_datadir}/kpackage/genericqml/org.kde.plasma.themeexplorer/contents/ui/main.qml
+%{_datadir}/kpackage/genericqml/org.kde.plasma.themeexplorer/metadata.desktop
 %{_datadir}/kpackage/genericqml/org.kde.plasma.themeexplorer/metadata.json
 %{_mandir}/man1/plasmaengineexplorer.1*
 %{_mandir}/man1/plasmoidviewer.1*
+%{_datadir}/metainfo/org.kde.plasma.cuttlefish.appdata.xml
 %{_datadir}/metainfo/org.kde.plasma.lookandfeelexplorer.appdata.xml
 %{_datadir}/metainfo/org.kde.plasma.plasmoidviewershell.appdata.xml
 %{_datadir}/metainfo/org.kde.plasma.themeexplorer.appdata.xml
@@ -140,6 +148,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/org.kde.plasmoidviewer.desktop
 %{_datadir}/metainfo/org.kde.plasmaengineexplorer.appdata.xml
 %{_datadir}/metainfo/org.kde.plasmoidviewer.appdata.xml
+%{_datadir}/kservices5/plasma-shell-org.kde.plasma.plasmoidviewershell.desktop
+%{_desktopdir}/org.kde.plasma.cuttlefish.desktop
 
 %lang(ca) %{_mandir}/ca/man1/plasmaengineexplorer.1*
 %lang(ca) %{_mandir}/ca/man1/plasmoidviewer.1*
@@ -165,18 +175,10 @@ rm -rf $RPM_BUILD_ROOT
 %lang(pt_BR) %{_mandir}/pt_BR/man1/plasmoidviewer.1*
 %lang(ru) %{_mandir}/ru/man1/plasmaengineexplorer.1*
 %lang(ru) %{_mandir}/ru/man1/plasmoidviewer.1*
-%lang(sv) %{_mandir}/sv/man1/plasmaengineexplorer.1*
-%lang(sv) %{_mandir}/sv/man1/plasmoidviewer.1*
+#%lang(sv) %{_mandir}/sv/man1/plasmaengineexplorer.1*
+#%lang(sv) %{_mandir}/sv/man1/plasmoidviewer.1*
 %lang(tr) %{_mandir}/tr/man1/plasmaengineexplorer.1*
 %lang(tr) %{_mandir}/tr/man1/plasmoidviewer.1*
 %lang(uk) %{_mandir}/uk/man1/plasmaengineexplorer.1*
 %lang(uk) %{_mandir}/uk/man1/plasmoidviewer.1*
 %{zsh_compdir}/_plasmoidviewer
-
-%attr(755,root,root) %{_bindir}/iconexplorer
-%attr(755,root,root)%{_bindir}/kqml
-%attr(755,root,root)%{_libdir}/qt6/plugins/ktexteditor/iconexplorerplugin.so
-%{_desktopdir}/org.kde.iconexplorer.desktop
-%{_mandir}/man1/kqml.1*
-%{_datadir}/metainfo/org.kde.plasma.iconexplorer.appdata.xml
-%{zsh_compdir}/_kqml
